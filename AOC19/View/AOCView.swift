@@ -7,14 +7,14 @@
 //
 
 import SwiftUI
+import Cocoa
 import CoreData
 
 
 struct AOCView: View {
 	@Environment(\.managedObjectContext) var context
 	
-	@State private var showTimeAllAlert: Bool = false
-	@State private var timeAlertString: String = ""
+	@State private var timeAllResultsString: String = ""
 	
 	var body: some View {
 		NavigationView {
@@ -25,30 +25,41 @@ struct AOCView: View {
 				.listStyle(SidebarListStyle())
 				
 				Button(action: {
-					self.timeNext(index: 0, time: 0)
+					self.timeNext(index: 0, time: 0, summary: "")
 				}, label: {
 					Text("Time All")
 				})
-				.padding()
+					.padding()
+				
+				Text(self.timeAllResultsString)
+					.padding()
 			}
-		}
-		.alert(isPresented: self.$showTimeAllAlert) {
-			Alert(title: Text("AOC 2019"), message: Text(self.timeAlertString))
 		}
 		.touchBar {
 			Button(action: {
-				self.timeNext(index: 0, time: 0)
+				self.timeNext(index: 0, time: 0, summary: "")
 			}, label: {
 				Text("Time All")
 			})
 		}
 	}
 	
-	private func timeNext(index: Int, time: TimeInterval) {
+	private func timeNext(index: Int, time: TimeInterval, summary: String) {
 		let puzzles = Puzzles.puzzles
 		guard index < puzzles.count else {
-			self.timeAlertString = "All puzzles tested in \(PuzzleDetails.format(time: time))"
-			self.showTimeAllAlert = true
+			self.timeAllResultsString = "All puzzles tested in \(PuzzleDetails.format(time: time))"
+			
+			let generatedReadme = readmeHeader + summary + "\n|**Total**| | \(PuzzleDetails.format(time: time)) |\n"
+			let data = generatedReadme.data(using: .utf8)
+			let filename = "README.md"
+			let savePanel = NSSavePanel()
+			savePanel.nameFieldStringValue = filename
+			savePanel.begin { _ in
+				if let url = savePanel.url {
+					FileManager.default.createFile(atPath: url.path, contents: data, attributes: nil)
+				}
+			}
+			
 			return
 		}
 		
@@ -61,16 +72,21 @@ struct AOCView: View {
 			
 			if let entry = try self.context.fetch(fetchRequest).first, let input = entry.input {
 				puzzle.timeAndSolve(input: input) { (_, puzzleTime) in
-					self.timeNext(index: index + 1, time: time + puzzleTime)
+					let newSummary = summary + "\n| \(puzzle.day) | \(puzzle.puzzle) | \(PuzzleDetails.format(time: entry.time))|"
+					self.timeNext(index: index + 1, time: time + puzzleTime, summary: newSummary)
 				}
 			}
 			else {
-				timeNext(index: index + 1, time: time)
+				timeNext(index: index + 1, time: time, summary: summary)
 			}
 		}
 		catch _ {
-			timeNext(index: index + 1, time: time)
+			timeNext(index: index + 1, time: time, summary: summary)
 		}
+	}
+	
+	private var readmeHeader: String {
+		return "# Advent of Code 2019 Solutions\n## Erik Sargent\n\nThese are my solutions for [Advent of Code 2019](https://adventofcode.com/2019).\n\nBelow is a summary of the execution times for each puzzle's solution. \n\n### Execution Time\n| Day | Puzzle | Time |\n| --- | --- | --- |"
 	}
 }
 
