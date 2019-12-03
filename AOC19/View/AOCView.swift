@@ -86,7 +86,7 @@ struct AOCView: View {
 	}
 	
 	private var readmeHeader: String {
-		return "# Advent of Code 2019 Solutions\n## Erik Sargent\n\nThese are my solutions for [Advent of Code 2019](https://adventofcode.com/2019).\n\nBelow is a summary of the execution times for each puzzle's solution. \n\n### Execution Time\n| Day | Puzzle | Time |\n| --- | --- | --- |"
+		return "# Advent of Code 2019 Solutions\n\nThese are my solutions for [Advent of Code 2019](https://adventofcode.com/2019). All written in [Swift](https://swift.org), and targeted for macOS 10.15.\n\nBelow is a summary of the execution times for each puzzle's solution. \n\n### Execution Time\n| Day | Puzzle | Time |\n| :---: | :---: | :---: |"
 	}
 }
 
