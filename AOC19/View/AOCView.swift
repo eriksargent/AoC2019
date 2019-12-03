@@ -49,7 +49,7 @@ struct AOCView: View {
 		guard index < puzzles.count else {
 			self.timeAllResultsString = "All puzzles tested in \(PuzzleDetails.format(time: time))"
 			
-			let generatedReadme = readmeHeader + summary + "\n|**Total**| | \(PuzzleDetails.format(time: time)) |\n"
+			let generatedReadme = readmeHeader + summary + "\n| **Total** | | \(PuzzleDetails.format(time: time)) |\n"
 			let data = generatedReadme.data(using: .utf8)
 			let filename = "README.md"
 			let savePanel = NSSavePanel()
@@ -72,7 +72,7 @@ struct AOCView: View {
 			
 			if let entry = try self.context.fetch(fetchRequest).first, let input = entry.input {
 				puzzle.timeAndSolve(input: input) { (_, puzzleTime) in
-					let newSummary = summary + "\n| \(puzzle.day) | \(puzzle.puzzle) | \(PuzzleDetails.format(time: entry.time))|"
+					let newSummary = summary + "\n| \(puzzle.day) | \(puzzle.puzzle) | \(PuzzleDetails.format(time: entry.time)) |"
 					self.timeNext(index: index + 1, time: time + puzzleTime, summary: newSummary)
 				}
 			}

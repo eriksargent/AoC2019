@@ -118,7 +118,7 @@ struct PuzzleDetails: View {
 	
 	static func format(time: Double) -> String {
 		let formatter = MeasurementFormatter()
-		let runningTime = formatter.string(from: Measurement<UnitDuration>(value: time, unit: .seconds))
+		let runningTime = formatter.string(from: Measurement<UnitDuration>(value: time, unit: .seconds).converted(to: .milliseconds))
 		return runningTime
 	}
 }

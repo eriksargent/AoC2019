@@ -32,11 +32,12 @@ enum Puzzle3_1: Puzzle {
 		let wires = input.components(separatedBy: .newlines)
 		guard wires.count == 2 else { return ([], []) }
 		
-		do {
-			var firstLines: [Line] = []
-			var secondLines: [Line] = []
-			
-			for wire in wires {
+		var firstLines: [Line] = []
+		var secondLines: [Line] = []
+
+		DispatchQueue.concurrentPerform(iterations: 2) { iteration in
+			do {
+				let wire = wires[iteration]
 				var start = Point(x: 0, y: 0)
 				var lines: [Line] = []
 				let vectors = try wire.components(separatedBy: ",").map({ try Vector($0) })
@@ -46,21 +47,17 @@ enum Puzzle3_1: Puzzle {
 					start = line.end
 				}
 				
-				if firstLines.isEmpty {
+				if iteration == 0 {
 					firstLines = lines
 				}
 				else {
 					secondLines = lines
 				}
 			}
-			
-			return (firstLines, secondLines)
+			catch _ {}
 		}
-		catch let error {
-			print("Unable to parse input")
-			print(error)
-			return ([], [])
-		}
+		
+		return (firstLines, secondLines)
 	}
 }
 

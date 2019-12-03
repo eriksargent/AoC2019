@@ -9,7 +9,7 @@
 import Foundation
 
 
-fileprivate let backgroundQueue = DispatchQueue(label: "BackgroundProcessing")
+fileprivate let backgroundQueue = DispatchQueue(label: "BackgroundProcessing", qos: .userInitiated, attributes: .concurrent)
 
 
 protocol Puzzle {
