@@ -20,6 +20,9 @@
 		BFE9365B2396C14E00704983 /* Puzzle3_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE9365A2396C14E00704983 /* Puzzle3_2.swift */; };
 		BFE9365D2396C31200704983 /* Puzzle3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE9365C2396C31200704983 /* Puzzle3.swift */; };
 		BFE9365F2396C95700704983 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE9365E2396C95700704983 /* Regex.swift */; };
+		BFE936622397005D00704983 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE936612397005D00704983 /* Point.swift */; };
+		BFE936642397007700704983 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE936632397007700704983 /* Line.swift */; };
+		BFE93666239700B500704983 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE93665239700B500704983 /* Vector.swift */; };
 		BFEBAC9521B46F3D00ECA6B0 /* Puzzle2_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEBAC9421B46F3D00ECA6B0 /* Puzzle2_1.swift */; };
 		BFEBAC9721B46F5B00ECA6B0 /* Puzzle2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEBAC9621B46F5B00ECA6B0 /* Puzzle2.swift */; };
 		BFEBAC9921B48D1400ECA6B0 /* Puzzle2_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEBAC9821B48D1400ECA6B0 /* Puzzle2_2.swift */; };
@@ -58,6 +61,9 @@
 		BFE9365A2396C14E00704983 /* Puzzle3_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle3_2.swift; sourceTree = "<group>"; };
 		BFE9365C2396C31200704983 /* Puzzle3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle3.swift; sourceTree = "<group>"; };
 		BFE9365E2396C95700704983 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
+		BFE936612397005D00704983 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+		BFE936632397007700704983 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		BFE93665239700B500704983 /* Vector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
 		BFEBAC9421B46F3D00ECA6B0 /* Puzzle2_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle2_1.swift; sourceTree = "<group>"; };
 		BFEBAC9621B46F5B00ECA6B0 /* Puzzle2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle2.swift; sourceTree = "<group>"; };
 		BFEBAC9821B48D1400ECA6B0 /* Puzzle2_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle2_2.swift; sourceTree = "<group>"; };
@@ -154,6 +160,7 @@
 				BFB72E6321B5A5F9007B0452 /* Optionals.swift */,
 				BF765DB621AC789900A9947A /* Puzzle.swift */,
 				BFE9365E2396C95700704983 /* Regex.swift */,
+				BFE936602397004D00704983 /* Geometry */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -177,6 +184,16 @@
 				BF765D9721AC779400A9947A /* AppDelegate.swift */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BFE936602397004D00704983 /* Geometry */ = {
+			isa = PBXGroup;
+			children = (
+				BFE936612397005D00704983 /* Point.swift */,
+				BFE93665239700B500704983 /* Vector.swift */,
+				BFE936632397007700704983 /* Line.swift */,
+			);
+			path = Geometry;
 			sourceTree = "<group>";
 		};
 		BFF72A2D23959ECC00D93269 /* Model */ = {
@@ -296,12 +313,15 @@
 				BFE9365F2396C95700704983 /* Regex.swift in Sources */,
 				BFB72E6421B5A5F9007B0452 /* Optionals.swift in Sources */,
 				BFEBAC9921B48D1400ECA6B0 /* Puzzle2_2.swift in Sources */,
+				BFE93666239700B500704983 /* Vector.swift in Sources */,
 				BF765D9821AC779400A9947A /* AppDelegate.swift in Sources */,
 				BFF72A3023959EEC00D93269 /* Model.xcdatamodeld in Sources */,
 				BFE936592396C14400704983 /* Puzzle3_1.swift in Sources */,
 				BFE9365B2396C14E00704983 /* Puzzle3_2.swift in Sources */,
 				BFF72A3323959F7B00D93269 /* Model.swift in Sources */,
+				BFE936622397005D00704983 /* Point.swift in Sources */,
 				BFF72A3523959FD300D93269 /* PuzzleDetails.swift in Sources */,
+				BFE936642397007700704983 /* Line.swift in Sources */,
 				BF765DBB21AC854300A9947A /* Puzzle1_2.swift in Sources */,
 				BF765DB721AC789900A9947A /* Puzzle.swift in Sources */,
 			);
