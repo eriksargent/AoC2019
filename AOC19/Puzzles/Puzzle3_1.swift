@@ -39,9 +39,11 @@ enum Puzzle3_1: Puzzle {
 			do {
 				let wire = wires[iteration]
 				var start = Point(x: 0, y: 0)
+				let vectorComponents = wire.components(separatedBy: ",")
 				var lines: [Line] = []
-				let vectors = try wire.components(separatedBy: ",").map({ try Vector($0) })
-				for vector in vectors {
+				
+				for comp in vectorComponents {
+					let vector = try Vector(comp)
 					let line = start.line(to: vector)
 					lines.append(line)
 					start = line.end
@@ -71,13 +73,14 @@ enum ParseError: Error {
 
 private extension Vector {
 	init(_ string: String) throws {
-		guard let dirString = string.firstMatch(of: "^[ULDR]") else {
+		guard let dirString = string.first else {
 			throw ParseError.noDirection
 		}
-		guard let dir = Direction(rawValue: dirString) else {
+		guard let dir = Direction(rawValue: String(dirString)) else {
 			throw ParseError.invalidDirection
 		}
-		guard let distString = string.firstMatch(of: "\\d+"), let dist = Int(distString) else {
+		let distString = string.dropFirst()
+		guard let dist = Int(distString) else {
 			throw ParseError.noDistance
 		}
 		
