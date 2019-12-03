@@ -32,6 +32,7 @@ class PuzzleTestCase: XCTestCase {
 		let daysPuzzles = Puzzles.puzzles.filter({ $0.day == day })
 		puzzle = daysPuzzles.first(where: { $0.puzzle == 2 })
 		
+		XCTAssertNotNil(puzzle, "Puzzle 2 for day \(day) not found")
 		if let puzzle = puzzle {
 			testPuzzle2(puzzle: puzzle)
 		}
@@ -57,3 +58,24 @@ class PuzzleTestCase: XCTestCase {
 		}
 	}
 }
+
+
+// MARK: - Template
+/*
+import XCTest
+
+@testable import AOC19
+
+
+class Puzzle<#day#>: PuzzleTestCase {
+	override var day: Int { <#day#> }
+	
+	override func testPuzzle1(puzzle: Puzzle.Type) {
+//		assertSolution(for: <#input#>, returns: <#output#>)
+	}
+	
+	override func testPuzzle2(puzzle: Puzzle.Type) {
+//		assertSolution(for: <#input#>, returns: <#output#>)
+	}
+}
+*/

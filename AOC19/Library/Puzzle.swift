@@ -47,6 +47,21 @@ struct Puzzles {
 		Puzzle1_1.self,
 		Puzzle1_2.self,
 		Puzzle2_1.self,
-		Puzzle2_2.self
+		Puzzle2_2.self,
+		Puzzle3_1.self,
+		Puzzle3_2.self
 	]
 }
+
+
+// MARK: - Template
+/*
+enum Puzzle<#day#>_<#puzzle#>: Puzzle {
+	static let day = <#day#>
+	static let puzzle = <#puzzle#>
+
+	static func solve(input: String) -> String {
+		return ""
+	}
+}
+*/
