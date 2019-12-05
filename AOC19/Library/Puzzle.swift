@@ -49,7 +49,11 @@ struct Puzzles {
 		Puzzle2_1.self,
 		Puzzle2_2.self,
 		Puzzle3_1.self,
-		Puzzle3_2.self
+		Puzzle3_2.self,
+		Puzzle4_1.self,
+		Puzzle4_2.self,
+		Puzzle5_1.self,
+		Puzzle5_2.self
 	]
 }
 
