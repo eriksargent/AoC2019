@@ -17,4 +17,8 @@ Below is a summary of the execution times for each puzzle's solution.
 | 4 | 2 | 4.174 ms |
 | 5 | 1 | 1.548 ms |
 | 5 | 2 | 2.596 ms |
-| **Total** | | 6.091 ms |
+| 6 | 1 | 271.106 ms |
+| 6 | 2 | 536.914 ms |
+| 7 | 1 | 83.085 ms |
+| 7 | 2 | 128.876 ms |
+| **Total** | | 1,332.682 ms |

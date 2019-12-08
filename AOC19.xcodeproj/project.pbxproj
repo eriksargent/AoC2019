@@ -26,6 +26,9 @@
 		BFD57553239ABBFB00C94B0A /* Puzzle6_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD57552239ABBFB00C94B0A /* Puzzle6_2.swift */; };
 		BFD57555239ABC0E00C94B0A /* Puzzle6.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD57554239ABC0E00C94B0A /* Puzzle6.swift */; };
 		BFD57557239ABD2400C94B0A /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD57556239ABD2400C94B0A /* Sequence.swift */; };
+		BFDD8C42239C62DE00085D13 /* Puzzle7_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDD8C41239C62DE00085D13 /* Puzzle7_1.swift */; };
+		BFDD8C44239C62EE00085D13 /* Puzzle7_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDD8C43239C62EE00085D13 /* Puzzle7_2.swift */; };
+		BFDD8C46239C630000085D13 /* Puzzle7.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDD8C45239C630000085D13 /* Puzzle7.swift */; };
 		BFE936592396C14400704983 /* Puzzle3_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE936582396C14400704983 /* Puzzle3_1.swift */; };
 		BFE9365B2396C14E00704983 /* Puzzle3_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE9365A2396C14E00704983 /* Puzzle3_2.swift */; };
 		BFE9365D2396C31200704983 /* Puzzle3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE9365C2396C31200704983 /* Puzzle3.swift */; };
@@ -77,6 +80,9 @@
 		BFD57552239ABBFB00C94B0A /* Puzzle6_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle6_2.swift; sourceTree = "<group>"; };
 		BFD57554239ABC0E00C94B0A /* Puzzle6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle6.swift; sourceTree = "<group>"; };
 		BFD57556239ABD2400C94B0A /* Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
+		BFDD8C41239C62DE00085D13 /* Puzzle7_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle7_1.swift; sourceTree = "<group>"; };
+		BFDD8C43239C62EE00085D13 /* Puzzle7_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle7_2.swift; sourceTree = "<group>"; };
+		BFDD8C45239C630000085D13 /* Puzzle7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle7.swift; sourceTree = "<group>"; };
 		BFE936582396C14400704983 /* Puzzle3_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle3_1.swift; sourceTree = "<group>"; };
 		BFE9365A2396C14E00704983 /* Puzzle3_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle3_2.swift; sourceTree = "<group>"; };
 		BFE9365C2396C31200704983 /* Puzzle3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle3.swift; sourceTree = "<group>"; };
@@ -165,6 +171,8 @@
 				BF7A335623996BC900BD5C7D /* Puzzle5_2.swift */,
 				BFD57550239ABBE800C94B0A /* Puzzle6_1.swift */,
 				BFD57552239ABBFB00C94B0A /* Puzzle6_2.swift */,
+				BFDD8C41239C62DE00085D13 /* Puzzle7_1.swift */,
+				BFDD8C43239C62EE00085D13 /* Puzzle7_2.swift */,
 			);
 			path = Puzzles;
 			sourceTree = "<group>";
@@ -178,6 +186,7 @@
 				BF88E9F323981E37002BC0D2 /* Puzzle4.swift */,
 				BF7A3354239969A000BD5C7D /* Puzzle5.swift */,
 				BFD57554239ABC0E00C94B0A /* Puzzle6.swift */,
+				BFDD8C45239C630000085D13 /* Puzzle7.swift */,
 				BF9C69372395757600B8072D /* PuzzleTestCase.swift */,
 			);
 			path = Puzzles;
@@ -337,10 +346,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFDD8C44239C62EE00085D13 /* Puzzle7_2.swift in Sources */,
 				BFD57553239ABBFB00C94B0A /* Puzzle6_2.swift in Sources */,
 				BFEBAC9521B46F3D00ECA6B0 /* Puzzle2_1.swift in Sources */,
 				BFD57557239ABD2400C94B0A /* Sequence.swift in Sources */,
 				BF9C693A239582B900B8072D /* AOCView.swift in Sources */,
+				BFDD8C42239C62DE00085D13 /* Puzzle7_1.swift in Sources */,
 				BF765DB921AC81D000A9947A /* Puzzle1_1.swift in Sources */,
 				BFE9365F2396C95700704983 /* Regex.swift in Sources */,
 				BFB72E6421B5A5F9007B0452 /* Optionals.swift in Sources */,
@@ -369,6 +380,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF9C69382395757600B8072D /* PuzzleTestCase.swift in Sources */,
+				BFDD8C46239C630000085D13 /* Puzzle7.swift in Sources */,
 				BF88E9F423981E37002BC0D2 /* Puzzle4.swift in Sources */,
 				BFE9365D2396C31200704983 /* Puzzle3.swift in Sources */,
 				BF7A3355239969A000BD5C7D /* Puzzle5.swift in Sources */,
