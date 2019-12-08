@@ -57,7 +57,9 @@ struct Puzzles {
 		Puzzle6_1.self,
 		Puzzle6_2.self,
 		Puzzle7_1.self,
-		Puzzle7_2.self
+		Puzzle7_2.self,
+		Puzzle8_1.self,
+		Puzzle8_2.self
 	]
 }
 

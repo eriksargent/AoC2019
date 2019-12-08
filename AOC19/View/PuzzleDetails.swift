@@ -44,6 +44,8 @@ struct PuzzleDetails: View {
 			}
 			
 			Text(self.puzzleOutput)
+				.font(Font.system(.body, design: .monospaced))
+				.border(Color.black, width: 1)
 				.onTapGesture {
 					let pasteboard = NSPasteboard.general
 					pasteboard.clearContents()
