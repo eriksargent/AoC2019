@@ -18,11 +18,15 @@ enum Puzzle9_1: Puzzle {
 		let arguments = input.components(separatedBy: ";")
 		guard arguments.count >= 1 else { return "" }
 		
-		let inputs = arguments[1].components(separatedBy: ",").compactMap({ Int($0) })
+		var inputs: [Int] = []
+		if arguments.count >= 2 {
+			inputs = arguments[1].components(separatedBy: ",").compactMap({ Int($0) })
+		}
 		
 		let computer = IntCode(with: arguments[0])
 		
-		return computer.process(input: inputs)
+		let output = computer.process(input: inputs)
+		return output
 	}
 	
 	class IntCode {
@@ -43,49 +47,38 @@ enum Puzzle9_1: Puzzle {
 			self.pc = from.pc
 		}
 		
-		func verifyIndex(at position: Int) {
-			if position >= opcodes.count {
-				let current = opcodes.count
-				opcodes.append(contentsOf: [Int](repeating: 0, count: max(current, position - current + 1)))
-			}
-		}
-		
 		func value(at position: Int, mode: Mode) -> Int {
-			verifyIndex(at: position)
 			let pos = opcodes[position]
 			
 			switch mode {
 			case .position:
-				verifyIndex(at: pos)
 				return opcodes[pos]
 			case .immediate:
 				return pos
 			case .relative:
 				let relative = relativeBase + opcodes[position]
-				verifyIndex(at: relative)
 				return opcodes[relative]
 			}
 		}
 		
 		func write(_ value: Int, to position: Int, mode: Mode) {
-			verifyIndex(at: position)
 			let pos = opcodes[position]
 			
 			switch mode {
 			case .position:
-				verifyIndex(at: pos)
 				opcodes[pos] = value
 			case .immediate:
 				break
 			case .relative:
 				let relative = relativeBase + pos
-				verifyIndex(at: relative)
 				opcodes[relative] = value
 			}
 		}
 		
 		func reset() {
-			opcodes = instructions.components(separatedBy: ",").map({ Int($0) ?? 0 })
+			let comps = instructions.components(separatedBy: ",").compactMap({ Int($0) })
+			opcodes = [Int](repeating: 0, count: 2000)
+			opcodes[0..<comps.count] = comps[0..<comps.count]
 			pc = 0
 		}
 		

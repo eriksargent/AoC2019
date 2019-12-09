@@ -29,11 +29,12 @@ enum Puzzle6_1: Puzzle {
 		
 		let comNode = Node(named: "COM", orbiting: nil)
 		
-		var nextNodes = ["COM"]
+		var nextNodes = [comNode]
 		
 		while !orbits.isEmpty && !nextNodes.isEmpty {
-			let nextNode = nextNodes.removeFirst()
-			guard let node = comNode.findNode(named: nextNode) else { continue }
+			let node = nextNodes.removeFirst()
+			let nextNode = node.name
+//			guard let node = comNode.findNode(named: nextNode) else { continue }
 
 			var removeIndicies: [Int] = []
 
@@ -69,8 +70,8 @@ enum Puzzle6_1: Puzzle {
 			
 			for (index, orbit) in orbits[start...end].enumerated() where orbit[0] == nextNode {
 				removeIndicies.append(index + start)
-				node.addChild(named: orbit[1])
-				nextNodes.append(orbit[1])
+				let child = node.addChild(named: orbit[1])
+				nextNodes.append(child)
 			}
 
 			for index in removeIndicies.reversed() {
@@ -92,11 +93,11 @@ enum Puzzle6_1: Puzzle {
 			self.parent = parent
 		}
 		
-		func addChild(named name: String) {
+		@discardableResult
+		func addChild(named name: String) -> Node {
 			let child = Node(named: name, orbiting: self)
-//			children.append(child)
-//			children.sort()
 			children.orderedInsert(child)
+			return child
 		}
 		
 		func findNode(named name: String) -> Node? {

@@ -72,7 +72,7 @@ struct AOCView: View {
 			
 			if let entry = try self.context.fetch(fetchRequest).first, let input = entry.input {
 				puzzle.timeAndSolve(input: input) { (_, puzzleTime) in
-					let newSummary = summary + "\n| \(puzzle.day) | \(puzzle.puzzle) | \(PuzzleDetails.format(time: entry.time)) |"
+					let newSummary = summary + "\n| \(puzzle.day) | \(puzzle.puzzle) | \(PuzzleDetails.format(time: puzzleTime)) |"
 					self.timeNext(index: index + 1, time: time + puzzleTime, summary: newSummary)
 				}
 			}
