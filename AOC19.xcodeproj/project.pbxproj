@@ -22,6 +22,9 @@
 		BF9C69382395757600B8072D /* PuzzleTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9C69372395757600B8072D /* PuzzleTestCase.swift */; };
 		BF9C693A239582B900B8072D /* AOCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9C6939239582B900B8072D /* AOCView.swift */; };
 		BFB72E6421B5A5F9007B0452 /* Optionals.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB72E6321B5A5F9007B0452 /* Optionals.swift */; };
+		BFBA6505239EAD150002CF3E /* Puzzle9_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBA6504239EAD150002CF3E /* Puzzle9_1.swift */; };
+		BFBA6507239EAD240002CF3E /* Puzzle9_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBA6506239EAD240002CF3E /* Puzzle9_2.swift */; };
+		BFBA6509239EAE660002CF3E /* Puzzle9.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBA6508239EAE660002CF3E /* Puzzle9.swift */; };
 		BFD57551239ABBE800C94B0A /* Puzzle6_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD57550239ABBE800C94B0A /* Puzzle6_1.swift */; };
 		BFD57553239ABBFB00C94B0A /* Puzzle6_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD57552239ABBFB00C94B0A /* Puzzle6_2.swift */; };
 		BFD57555239ABC0E00C94B0A /* Puzzle6.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD57554239ABC0E00C94B0A /* Puzzle6.swift */; };
@@ -79,6 +82,9 @@
 		BF9C69372395757600B8072D /* PuzzleTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleTestCase.swift; sourceTree = "<group>"; };
 		BF9C6939239582B900B8072D /* AOCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AOCView.swift; sourceTree = "<group>"; };
 		BFB72E6321B5A5F9007B0452 /* Optionals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Optionals.swift; sourceTree = "<group>"; };
+		BFBA6504239EAD150002CF3E /* Puzzle9_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle9_1.swift; sourceTree = "<group>"; };
+		BFBA6506239EAD240002CF3E /* Puzzle9_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle9_2.swift; sourceTree = "<group>"; };
+		BFBA6508239EAE660002CF3E /* Puzzle9.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle9.swift; sourceTree = "<group>"; };
 		BFD57550239ABBE800C94B0A /* Puzzle6_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle6_1.swift; sourceTree = "<group>"; };
 		BFD57552239ABBFB00C94B0A /* Puzzle6_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle6_2.swift; sourceTree = "<group>"; };
 		BFD57554239ABC0E00C94B0A /* Puzzle6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle6.swift; sourceTree = "<group>"; };
@@ -181,6 +187,8 @@
 				BFDD8C43239C62EE00085D13 /* Puzzle7_2.swift */,
 				BFDD8C47239D773B00085D13 /* Puzzle8_1.swift */,
 				BFDD8C49239D774B00085D13 /* Puzzle8_2.swift */,
+				BFBA6504239EAD150002CF3E /* Puzzle9_1.swift */,
+				BFBA6506239EAD240002CF3E /* Puzzle9_2.swift */,
 			);
 			path = Puzzles;
 			sourceTree = "<group>";
@@ -196,6 +204,7 @@
 				BFD57554239ABC0E00C94B0A /* Puzzle6.swift */,
 				BFDD8C45239C630000085D13 /* Puzzle7.swift */,
 				BFDD8C4B239D775C00085D13 /* Puzzle8.swift */,
+				BFBA6508239EAE660002CF3E /* Puzzle9.swift */,
 				BF9C69372395757600B8072D /* PuzzleTestCase.swift */,
 			);
 			path = Puzzles;
@@ -380,7 +389,9 @@
 				BFE936622397005D00704983 /* Point.swift in Sources */,
 				BFF72A3523959FD300D93269 /* PuzzleDetails.swift in Sources */,
 				BFE936642397007700704983 /* Line.swift in Sources */,
+				BFBA6507239EAD240002CF3E /* Puzzle9_2.swift in Sources */,
 				BF765DBB21AC854300A9947A /* Puzzle1_2.swift in Sources */,
+				BFBA6505239EAD150002CF3E /* Puzzle9_1.swift in Sources */,
 				BF765DB721AC789900A9947A /* Puzzle.swift in Sources */,
 				BF88E9F623981EC0002BC0D2 /* Puzzle4_2.swift in Sources */,
 			);
@@ -391,6 +402,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF9C69382395757600B8072D /* PuzzleTestCase.swift in Sources */,
+				BFBA6509239EAE660002CF3E /* Puzzle9.swift in Sources */,
 				BFDD8C46239C630000085D13 /* Puzzle7.swift in Sources */,
 				BF88E9F423981E37002BC0D2 /* Puzzle4.swift in Sources */,
 				BFDD8C4C239D775C00085D13 /* Puzzle8.swift in Sources */,

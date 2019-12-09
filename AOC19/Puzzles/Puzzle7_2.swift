@@ -12,32 +12,36 @@ import Foundation
 enum Puzzle7_2: Puzzle {
 	static let day = 7
 	static let puzzle = 2
-
+	
+	static var instructions = ""
+	
 	static func solve(input: String) -> String {
+		instructions = input
+		
 		var possibilities = [Int](repeating: 0, count: 5)
 		
 		DispatchQueue.concurrentPerform(iterations: 5) { order in
-			possibilities[order] = findBestSequence(phase: 1, sequence: "\(order + 5)", instructions: input)
+			possibilities[order] = findBestSequence(phase: 1, sequence: [order + 5])
 		}
 		
 		return String(possibilities.max() ?? 0)
 	}
 	
-	static func findBestSequence(phase: Int, sequence: String, instructions: String) -> Int {
+	static func findBestSequence(phase: Int, sequence: [Int]) -> Int {
 		var best = 0
 		for order in 5..<10 {
-			guard !sequence.contains(String(order)) else {
+			guard !sequence.contains(order) else {
 				continue
 			}
 			
-			let nextSequence = "\(sequence),\(order)"
+			let nextSequence = sequence + [order]
 			
 			if phase == 4 {
-				let result = testInput(instructions: instructions, sequence: nextSequence)
+				let result = testInput(phases: nextSequence)
 				best = max(best, result)
 			}
 			else {
-				let result = findBestSequence(phase: phase + 1, sequence: nextSequence, instructions: instructions)
+				let result = findBestSequence(phase: phase + 1, sequence: nextSequence)
 				best = max(best, result)
 			}
 		}
@@ -45,14 +49,13 @@ enum Puzzle7_2: Puzzle {
 		return best
 	}
 	
-	static func testInput(instructions: String, sequence: String) -> Int {
-		let phases = sequence.components(separatedBy: ",")
+	static func testInput(phases: [Int]) -> Int {
 		guard phases.count == 5 else { return 0 }
 		
 		var outputPower = 0
 		var stages: [IntCode] = []
 		for phase in phases {
-			let phaseInput = "\(phase),\(outputPower)"
+			let phaseInput = [phase, outputPower]
 			let stage = IntCode(with: instructions)
 			outputPower = stage.process(input: phaseInput)
 			stages.append(stage)
@@ -62,7 +65,7 @@ enum Puzzle7_2: Puzzle {
 		
 		while !halted {
 			for stage in stages {
-				let newOutput = stage.process(input: "\(outputPower)")
+				let newOutput = stage.process(input: [outputPower])
 				if newOutput == 0 {
 					return outputPower
 				}
@@ -104,8 +107,9 @@ enum Puzzle7_2: Puzzle {
 			return IntCode(from: self)
 		}
 		
-		func process(input: String) -> Int {
-			var inputs: [Int] = input.components(separatedBy: ",").compactMap({ Int($0) })
+		func process(input: [Int]) -> Int {
+			var inputs = input
+//			var inputs: [Int] = input.components(separatedBy: ",").compactMap({ Int($0) })
 			
 			while opcodes[pc] != Operation.halt.rawValue {
 				let parameter = Parameter(from: opcodes[pc])

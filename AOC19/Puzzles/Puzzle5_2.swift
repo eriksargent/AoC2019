@@ -14,7 +14,7 @@ enum Puzzle5_2: Puzzle {
 	static let puzzle = 2
 	
 	static func solve(input: String) -> String {
-		// MARK: - Split program and inputs by a semicolon
+		// Split program and inputs by a semicolon
 		let arguments = input.components(separatedBy: ";")
 		guard arguments.count >= 1 else { return "" }
 		
