@@ -300,6 +300,11 @@ enum Puzzle11_2: Puzzle {
 		case position = 0
 		case immediate = 1
 		case relative = 2
+		
+		static let emptyModes1: [Mode] = [.position]
+		static let emptyModes2: [Mode] = [.position, .position]
+		static let emptyModes3: [Mode] = [.position, .position, .position]
+		static let emptyModes4: [Mode] = [.position, .position, .position, .position]
 	}
 	
 	struct Parameter {
@@ -309,7 +314,19 @@ enum Puzzle11_2: Puzzle {
 		init(from code: Int) {
 			if code < 100 {
 				op = Operation(rawValue: code) ?? .nop
-				modes = [Mode](repeating: .position, count: op.numParameters)
+				
+				// This provides a nice speedup for larger puzzles by avoiding a good number of calls to create a new array
+				let numParameters = op.numParameters
+				switch numParameters {
+				case 0: modes = []
+				case 1: modes = Mode.emptyModes1
+				case 2: modes = Mode.emptyModes2
+				case 3: modes = Mode.emptyModes3
+				case 4: modes = Mode.emptyModes4
+					
+				default:
+					modes = [Mode](repeating: .position, count: numParameters)
+				}
 			}
 			else {
 				var inputCode = code
