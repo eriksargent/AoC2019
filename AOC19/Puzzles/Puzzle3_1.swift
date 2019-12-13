@@ -43,7 +43,7 @@ enum Puzzle3_1: Puzzle {
 				var lines: [Line] = []
 				
 				for comp in vectorComponents {
-					let vector = try Vector(comp)
+					let vector = try CardinalVector(comp)
 					let line = start.line(to: vector)
 					lines.append(line)
 					start = line.end
@@ -71,7 +71,7 @@ enum ParseError: Error {
 }
 
 
-private extension Vector {
+private extension CardinalVector {
 	init(_ string: String) throws {
 		guard let dirString = string.first else {
 			throw ParseError.noDirection
