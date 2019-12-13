@@ -290,20 +290,18 @@ enum Puzzle11_1: Puzzle {
 				modes = [Mode](repeating: .position, count: op.numParameters)
 			}
 			else {
-				let digits = Array(String(code).compactMap({ Int(String($0)) }).reversed())
+				var inputCode = code
 				
-				let baseCode = digits[0] + digits[1] * 10
+				let baseCode = inputCode % 100
+				inputCode /= 100
 				op = Operation(rawValue: baseCode) ?? .nop
 				modes = []
 				
 				let numParameters = op.numParameters
-				for index in 0..<numParameters {
-					if index + 2 < digits.count {
-						modes.append(Mode(rawValue: digits[index + 2]) ?? .position)
-					}
-					else {
-						modes.append(.position)
-					}
+				for _ in 0..<numParameters {
+					let digit = inputCode % 10
+					inputCode /= 10
+					modes.append(Mode(rawValue: digit) ?? .position)
 				}
 			}
 		}
