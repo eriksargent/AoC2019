@@ -24,6 +24,10 @@ struct Point: Equatable, Hashable, CustomStringConvertible, CustomDebugStringCon
 		return abs(x - to.x) + abs(y - to.y)
 	}
 	
+	func point(oneUnitToward direction: Direction) -> Point {
+		return self + CardinalVector(direction: direction, distance: 1)
+	}
+	
 	static func == (lhs: Point, rhs: Point) -> Bool {
 		return lhs.x == rhs.x && lhs.y == rhs.y
 	}
